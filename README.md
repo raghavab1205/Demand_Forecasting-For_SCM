@@ -1,4 +1,4 @@
-```markdown
+
 # 🚚📈 Supply Chain Demand Forecasting
 
 > “May the forecast be ever in your favor.”  
@@ -47,7 +47,7 @@ A full end-to-end supply chain demand forecasting pipeline, from messy raw data 
    ```bash
    git clone https://github.com/yourusername/supply-chain-forecasting.git
    cd supply-chain-forecasting
-````
+```
 
 2. **Install dependencies**
 
@@ -67,6 +67,3 @@ A full end-to-end supply chain demand forecasting pipeline, from messy raw data 
 ---
 
 > Built with ❤️ and ☕ by **Raghava**, AIML Engineer.
-
-```
-```
