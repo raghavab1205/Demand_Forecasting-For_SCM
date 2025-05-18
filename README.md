@@ -1,43 +1,29 @@
 
 # 🚚📈 Supply Chain Demand Forecasting
 
-> “May the forecast be ever in your favor.”  
+> “Forecasting is the art of looking at yesterday, so you don’t get surprised tomorrow.”  
 
-A full end-to-end supply chain demand forecasting pipeline, from messy raw data to state-of-the-art stacked LSTM predictions. This repo showcases how classical statistics, tree-based models, and deep learning battle it out for the crown of “best forecaster.” Spoiler: LSTM wins by a hair (and about 4.1% MAPE).
-
----
+All code lives in one Jupyter notebook—no scattered scripts. Covers everything: raw → cleaned → features → ARIMA/SARIMA → trees → GRU/LSTM → evaluation.
 
 ---
 
 ## 💡 Project Overview
 
-1. **Data Preprocessing**  
-   - Load raw Excel data (10,732 rows × 18 cols).  
-   - Impute 1.2% missing values (forward-fill/most-freq).  
-   - One-hot encode categories (product type, region) and flag holidays.  
-   - Generate lag features (1d, 7d, 30d) & 7-day rolling mean/std.
+Load & Clean
 
-2. **Train/Test Split**  
-   - Chronological split:  
-     - Training: Jan 2018–Jun 2021 (60%)  
-     - Validation: Jul 2021–Apr 2022 (20%)  
-     - Test: May 2022–Dec 2023 (20%)
+Notebook section “Data Preprocessing” loads data/raw/cleaned_dataset2.xlsx, imputes 1.2% missing, encodes 22 part types + 4 customers, flags holidays, creates lags & rolls, scales.
 
-3. **Modeling**  
-   - **Classical**: ARIMA (2,1,2), SARIMA (1,1,1,12)  
-   - **ML**: Decision Tree (depth=10), Random Forest (100 trees)  
-   - **Deep Learning**:  
-     - Stacked GRU (64→32 units, dropout=0.2)  
-     - Stacked LSTM (128→64→32 units, dropout=0.3)
+Split
 
-4. **Evaluation Metrics**  
-   - MAE, RMSE, MAPE.  
-   - Best performer: **Stacked LSTM** (RMSE=24.3, MAPE=4.1%)
+Chronological: 2023→2025 as outlined in the report.
 
-5. **Results & Insights**  
-   - Trees capture non-linearities well; RF beats DT by ~1.2 RMSE.  
-   - Deep nets edge out trees with long-term dependencies.  
-   - Classical models trail (~5.7% MAPE).
+Model
+
+ARIMA/SARIMA; Decision Tree/Random Forest; GRU/LSTM—all in discrete notebook cells.
+
+Evaluate
+
+MAE, RMSE, SMAPE; MAPE shown for legacy reference (but not recommended).
 
 ---
 
